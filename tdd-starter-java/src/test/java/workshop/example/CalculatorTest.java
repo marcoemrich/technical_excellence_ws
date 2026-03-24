@@ -2,12 +2,12 @@ package workshop.example;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class CalculatorTest {
 
     @Test
     void addsTwoNumbers() {
-        assertEquals(5, new Calculator().add(2, 3));
+        assertThat(new Calculator().add(2, 3)).isEqualTo(5);
     }
 }
