@@ -1,0 +1,15 @@
+{
+  "name": "js_testing_workshop",
+  "version": "1.0.0",
+  "description": "Introduction to TDD - Workshop Slides",
+  "private": true,
+  "scripts": {
+    "dev": "slidev",
+    "build": "slidev build",
+    "export": "slidev export"
+  },
+  "dependencies": {
+    "@slidev/cli": "^51.0.0",
+    "@slidev/theme-default": "^0.25.0"
+  }
+}
