@@ -1,6 +1,6 @@
 # TDD-Starter (TypeScript)
 
-Minimales Beispiel für testgetriebene Entwicklung: eine kleine Domäne (`add`) und **ein grüner Beispieltest** (`calculator.test.ts`).
+Minimales Beispiel für testgetriebene Entwicklung: eine kleine Domäne (`Thing`) und **ein grüner Beispieltest** (`thing.test.ts`).
 
 ## Voraussetzungen
 
