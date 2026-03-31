@@ -138,5 +138,69 @@ class GildedRoseTest {
         assertEquals(0, app.items[0].quality);
     }
 
+    @Test
+    public void increases_backstage_passes_quality_by_one_when_sellIn_is_above_10() throws Exception {
+        Item[] items = new Item[] { new ItemBuilder().called("Backstage passes to a TAFKAL80ETC concert").toBeSoldIn(11).ofQuality(10).build() };
+        GildedRose app = new GildedRose(items);
 
+        app.updateQuality();
+
+        assertEquals(10, app.items[0].sellIn);
+        assertEquals(11, app.items[0].quality);
+    }
+
+    @Test
+    public void never_increases_backstage_passes_quality_above_50_when_sellIn_is_10_or_less() throws Exception {
+        Item[] items = new Item[] { new ItemBuilder().called("Backstage passes to a TAFKAL80ETC concert").toBeSoldIn(10).ofQuality(49).build() };
+        GildedRose app = new GildedRose(items);
+
+        app.updateQuality();
+
+        assertEquals(9, app.items[0].sellIn);
+        assertEquals(50, app.items[0].quality);
+    }
+
+    @Test
+    public void increases_backstage_passes_quality_twice_when_sellIn_is_between_6_and_10() throws Exception {
+        Item[] items = new Item[] { new ItemBuilder().called("Backstage passes to a TAFKAL80ETC concert").toBeSoldIn(6).ofQuality(10).build() };
+        GildedRose app = new GildedRose(items);
+
+        app.updateQuality();
+
+        assertEquals(5, app.items[0].sellIn);
+        assertEquals(12, app.items[0].quality);
+    }
+
+    @Test
+    public void never_increases_backstage_passes_quality_above_50_when_sellIn_is_5_or_less() throws Exception {
+        Item[] items = new Item[] { new ItemBuilder().called("Backstage passes to a TAFKAL80ETC concert").toBeSoldIn(5).ofQuality(49).build() };
+        GildedRose app = new GildedRose(items);
+
+        app.updateQuality();
+
+        assertEquals(4, app.items[0].sellIn);
+        assertEquals(50, app.items[0].quality);
+    }
+
+    @Test
+    public void does_not_lower_quality_twice_as_fast_on_last_day_of_sale() throws Exception {
+        Item[] items = new Item[] { new ItemBuilder().called("Any Item").toBeSoldIn(1).ofQuality(10).build() };
+        GildedRose app = new GildedRose(items);
+
+        app.updateQuality();
+
+        assertEquals(0, app.items[0].sellIn);
+        assertEquals(9, app.items[0].quality);
+    }
+
+    @Test
+    public void never_increases_aged_brie_quality_above_50_when_past_expiration_date() throws Exception {
+        Item[] items = new Item[] { new ItemBuilder().called("Aged Brie").pastExpirationDate().ofQuality(49).build() };
+        GildedRose app = new GildedRose(items);
+
+        app.updateQuality();
+
+        assertEquals(-2, app.items[0].sellIn);
+        assertEquals(50, app.items[0].quality);
+    }
 }
