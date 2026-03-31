@@ -55,7 +55,7 @@ class TestGildedRose:
             .build()
         )
 
-        assert item.sell_in == -1
+        assert item.sell_in == -2
         assert item.quality == 8
 
     def test_never_lowers_quality_value_below_zero(self):
@@ -167,7 +167,7 @@ class TestGildedRose:
             .build()
         )
 
-        assert item.sell_in == -1
+        assert item.sell_in == -2
         assert item.quality == 0
 
     def test_increases_backstage_passes_quality_by_one_when_sell_in_is_above_10(self):

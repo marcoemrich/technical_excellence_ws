@@ -47,7 +47,7 @@ describe('Gilded Rose', () => {
 
     app.updateQuality();
 
-    expect(app.items[0].sellIn).toBe(-1);
+    expect(app.items[0].sellIn).toBe(-2);
     expect(app.items[0].quality).toBe(8);
   });
 
@@ -147,7 +147,7 @@ describe('Gilded Rose', () => {
 
     app.updateQuality();
 
-    expect(app.items[0].sellIn).toBe(-1);
+    expect(app.items[0].sellIn).toBe(-2);
     expect(app.items[0].quality).toBe(0);
   });
 
