@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "slidev slides.md",
     "dev2": "slidev slides2.md --port 3031",
+    "dev:refactoring": "slidev gilded-rose-refactoring-intro.md --port 3032",
     "build": "slidev build slides.md",
     "build2": "slidev build slides2.md",
     "export": "slidev export slides.md && slidev export slides2.md"
